@@ -15,8 +15,13 @@ export const disableDVDMode = () => {
 }
 
 const updateWindowPosition = (window: BrowserWindow) => {
+    const currentSize = window.getSize();
+    window.setSize(currentSize[0], currentSize[1]);
+
     const newPos = newPosition(window);
     window.setPosition(newPos[0], newPos[1]);
+
+    window.setSize(currentSize[0], currentSize[1]);
 }
 
 const newPosition = (window: BrowserWindow) => {
